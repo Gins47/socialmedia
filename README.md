@@ -1,6 +1,8 @@
 # socialmedia
 
-**Sample GraphQL QUeries**
+# Sample GraphQL Queries
+
+**Get all Posts**
 
 ```shell
 #Test the Posts
@@ -12,13 +14,63 @@ query Query {
    username
   }
 }
+```
 
-# User Registration
+**Get Post by ID**
 
+```shell
+ {
+  getPost(postId:"53cb6b9b4f4ddef1ad47f943") {
+    body
+    createdAt
+    username
+  }
+ }
 
 ```
 
-time:55
+**User Registration**
+
+```shell
+mutation{
+  register(registerInput:{
+    username:"John"
+    email:"John@gmail.com"
+    password:"123456"
+    confirmPassword:"123456"
+
+  }){
+    id
+    email
+    token
+    createdAt
+    username
+
+  }
+}
+```
+
+**User Login**
+
+```shell
+mutation{
+  userLogin(
+    username:"john"
+    password:"123456"
+
+){
+    id
+    email
+    token
+    createdAt
+    username
+
+  }
+}
+
+```
+
+time:1:18
 
 # Dependency
 
