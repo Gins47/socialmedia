@@ -2,7 +2,7 @@ const User = require("../../models/Users");
 const bcrypt = require("bcryptjs");
 require("dotenv").config();
 const { UserInputError } = require("apollo-server");
-const { validateUserInput, validateUserLogin } = require("../../utils/validators");
+const { validateUserRegistrationInput, validateUserLogin } = require("../../utils/validators");
 const { generateJWT } = require("../../utils/jwt");
 
 module.exports = {
@@ -55,7 +55,7 @@ module.exports = {
 
     async register(_, { registerInput: { username, email, password, confirmPassword } }) {
       //: Validate user data
-      const { errors, valid } = await validateUserInput(username, email, password, confirmPassword);
+      const { errors, valid } = await validateUserRegistrationInput(username, email, password, confirmPassword);
       if (!valid) {
         throw new UserInputError("Input validation errors", { errors });
       }

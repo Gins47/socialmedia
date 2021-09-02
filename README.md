@@ -70,6 +70,29 @@ mutation{
 
 ```
 
+**Create Post**
+
+```shell
+mutation($createPostBody: String!){
+  createPost(body: $createPostBody) {
+    id
+    body
+    createdAt
+  }
+}
+
+```
+
+**Delete Post**
+
+```shell
+
+mutation($deletePostPostId: ID!){
+  deletePost(postId: $deletePostPostId)
+}
+
+```
+
 time:1:18
 
 # Dependency
